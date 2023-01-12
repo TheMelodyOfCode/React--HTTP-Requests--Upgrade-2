@@ -42,11 +42,13 @@ export const getSingleDocfromDB = async ( cardName) =>{
     if (docSnap.exists()) {
       // console.log("Document data:", docSnap.data());
       return docSnap.data()
-    } else {
+    } 
+    else {
       // doc.data() will be undefined in this case
       const error = {error: 'error', status: 'rejected', message: `No Trading-Card with the name "${cardName}"` }
-      return error
+      return Promise.reject(error)
     }
+
 }
 
 
