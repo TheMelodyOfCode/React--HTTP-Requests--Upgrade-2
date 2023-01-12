@@ -1,21 +1,23 @@
 # REACT-HTTP-Requests - Upgrade - 2  
 ### REACT & Firebase
 
-#### 
-> This is an upgrade to my series of React-HTTP-Requests projects</br>
->    
->   
+#### Upgrade
+> This is an upgrade to my series of React-HTTP-Requests projects  
+> here we have a generic useAsync hook for handling any asynchronous logic for our app  
+> useCallback for memoization returned in a function 
+> safeDispatch in case our component has unmounted  
   
-> **general functionality:**
->> recieving a trading-Card when entering the name in the formfield or clicking the button  
->> showing a list of previous chosen trading-cards  
->> mounting/unmounting the app when un/-checking the checkbox
+> **General functionality:**
+>> recieving a trading-Card when entering the name in the form field or clicking the button    
+>> showing a list of previous chosen trading-cards    
+>> mounting/unmounting the app when un/-checking the checkbox  
 
-> This exercise was to work with :</br>
+> Hooks used in this exercise:  
 >> useState</br>
 >> useEffect</br>
 >> useReducer</br>
 >> useContext</br>
+>> useCallback</br>
 
 #### useState vs. useReducer
 > - When it's just an independent element of state you're managing:   useState  
@@ -31,6 +33,7 @@
 > Will run on localhost:3000</br>
 
 #### Credit
-> I want to give credit to **Kent C. Dodds** </br>
+> I can't stress this enough, all I learned in this exercise was from this guy:  
+> - **Kent C. Dodds**  
 > You can find more information about Epic-React here:</br> 
 > https://epicreact.dev/</br>
