@@ -7,7 +7,7 @@
 > useCallback for memoization  
 > return memoized run function  
 > safeDispatch in case of api call although the component has already unmounted
-> - this happens when a user makes an api call and while pending, navigates away (memoryleak)
+> - this happens when a user makes an api call and while pending, navigates away
   
 > **General functionality:**
 >> to recieve a trading-card from db when enter the name in the form field or click the  designeted button    
