@@ -24,7 +24,7 @@ function asyncReducer(state, action) {
       }
     }
 
-  function useAsync(asyncCallback, initialState, dependencies) {
+  function useAsync(initialState) {
 
       const [state, dispatch] = React.useReducer(asyncReducer, {
         status: 'idle',
@@ -33,42 +33,35 @@ function asyncReducer(state, action) {
         ...initialState,
       })
 
+    const run = React.useCallback(promise => {
 
-      React.useEffect(() => {
-
-        const promise = asyncCallback()
-        if (!promise) {
-          return
-        }
-        dispatch({type: 'pending'})
-        
-        promise.then(
-          data => {
-            dispatch({type: 'resolved', data})
-          },
-          error => {
-            dispatch({type: 'rejected', error})
-          },
-        )
-
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, dependencies )
-      return state
+      dispatch({type: 'pending'})
+      
+      promise.then(
+        data => {
+          dispatch({type: 'resolved', data})
+        },
+        error => {
+          dispatch({type: 'rejected', error})
+        },
+      )
+    }, [])
+      return {...state, run}
   }
   
 
   const CardNameInfo = ({cardName}) => {
-  
-    const state = useAsync(()=>{
-      if (!cardName){
+
+    const {data: cardItem, status, error, run} = useAsync({
+      status: cardName ? 'pending' : 'idle',
+    }) 
+    React.useEffect(()=>{
+      if (!cardName) {
         return
       }
+      return run(getSingleDocfromDB(cardName))
+    }, [cardName, run])
 
-      return getSingleDocfromDB(cardName)
-
-    }, { status: cardName ? 'pending' : 'idle'}, [cardName])
-
-      const {data: cardItem, status, error} = state
 
       switch (status) {
         case 'idle':
