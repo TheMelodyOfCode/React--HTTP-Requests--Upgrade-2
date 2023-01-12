@@ -1,21 +1,12 @@
 import * as React from 'react'
 
-import { CardNameCacheContext } from '../../context/cardNameCache.context'
+import { useCardNameCache } from '../../context/cardNameCache.context'
 
-
-function useCardNameCache(){
-    const context = React.useContext(CardNameCacheContext)
-    if(!context) {
-      throw new Error('useCardNameCache must be used in a CardNameCacheContext')
-    }
-    return context
-  }
 
 const  PreviousCardName = ({ onSelect, cardName}) => {
 
     const [cache, dispatch] = useCardNameCache()
 
-    // console.log(cache)
     React.useEffect(() => {
       if (Object.keys(cardName).length === 0) {
         return
