@@ -6,7 +6,8 @@
 > here we have a generic useAsync hook for handling any asynchronous logic for our app  
 > useCallback for memoization  
 > return memoized run function  
-> safeDispatch in case our component has unmounted    
+> safeDispatch in case of api call although the component has already unmounted
+>> this happens when a user makes an api call and while pending, navigates away (memoryleak)
   
 > **General functionality:**
 >> recieving a trading-Card when entering the name in the form field or clicking the button    
