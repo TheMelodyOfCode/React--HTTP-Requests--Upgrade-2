@@ -7,16 +7,17 @@
 > useCallback for memoization  
 > return memoized run function  
 > safeDispatch in case of api call although the component has already unmounted
->> this happens when a user makes an api call and while pending, navigates away (memoryleak)
+> - this happens when a user makes an api call and while pending, navigates away (memoryleak)
   
 > **General functionality:**
->> recieving a trading-Card when entering the name in the form field or clicking the button    
->> showing a list of previous chosen trading-cards    
+>> to recieve a trading-card from db when enter the name in the form field or click the  designeted button    
+>> to show a list of previous chosen trading-cards    
 >> mounting/unmounting the app when un/-checking the checkbox  
 
 > Hooks used in this exercise:  
 >> useState</br>
 >> useEffect</br>
+>> useRef</br>
 >> useReducer</br>
 >> useContext</br>
 >> useCallback</br>
