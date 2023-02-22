@@ -60,7 +60,7 @@ export const useAsync = (initialState) => {
     
     const dispatch = useSafeDispatch(unsafeDispatch)
     
-    /** run function responsible for memoizing */
+    /** run takes a promise as prop and is a function responsible for memoizing */
     const run = React.useCallback(promise => {
         
         dispatch({type: 'pending'})
